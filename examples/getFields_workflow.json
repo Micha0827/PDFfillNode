@@ -1,0 +1,21 @@
+{
+  "name": "PDF GetFields Example",
+  "nodes": [
+    {
+      "parameters": {
+        "baseUrl": "http://localhost:8080",
+        "operation": "getFields",
+        "source": "url",
+        "pdfUrl": "https://example.com/form.pdf"
+      },
+      "name": "Get PDF Fields",
+      "type": "pdfFill",
+      "typeVersion": 1,
+      "position": [
+        250,
+        300
+      ]
+    }
+  ],
+  "connections": {}
+}

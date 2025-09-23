@@ -1,0 +1,26 @@
+{
+  "name": "PDF Fill Example",
+  "nodes": [
+    {
+      "parameters": {
+        "baseUrl": "http://localhost:8080",
+        "operation": "fill",
+        "source": "url",
+        "pdfUrl": "https://example.com/form.pdf",
+        "fields": {
+          "Name": "Max Mustermann",
+          "Vorname": "Max",
+          "Nachname": "Mustermann"
+        }
+      },
+      "name": "Fill PDF Form",
+      "type": "pdfFill",
+      "typeVersion": 1,
+      "position": [
+        250,
+        300
+      ]
+    }
+  ],
+  "connections": {}
+}
