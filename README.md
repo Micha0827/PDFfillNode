@@ -1,4 +1,4 @@
-https://arc.net/l/quote/iofklxis# PDF Fill n8n Node
+DF Fill n8n Node
 
 Mit dieser n8n‑Node kannst du Formulardaten aus PDFs auslesen („Get Fields“) und PDFs mit Werten füllen („Fill“) – über die PDF Fill API.
 
@@ -87,13 +87,6 @@ Datei: `examples/fill_workflow.json`
   "connections": {}
 }
 ```
-
-## Weiterentwicklung
-
-- Tests und zusätzliche Beispiel‑Workflows im `examples`‑Ordner anlegen  
-- Dokumentation hier im README erweitern  
-- Node in n8n einbinden und manuell testen  
-- Veröffentlichung auf npm oder GitHub vorbereiten
 
 ---
 
