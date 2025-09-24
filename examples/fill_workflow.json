@@ -8,9 +8,20 @@
         "source": "url",
         "pdfUrl": "https://example.com/form.pdf",
         "fields": {
-          "Name": "Max Mustermann",
-          "Vorname": "Max",
-          "Nachname": "Mustermann"
+          "field": [
+            {
+              "name": "Name",
+              "value": "Max Mustermann"
+            },
+            {
+              "name": "Vorname",
+              "value": "Max"
+            },
+            {
+              "name": "Nachname",
+              "value": "Mustermann"
+            }
+          ]
         }
       },
       "name": "Fill PDF Form",

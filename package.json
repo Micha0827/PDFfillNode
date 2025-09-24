@@ -1,7 +1,7 @@
 {
-  "name": "n8n_PDFfill",
-  "version": "1.0.0",
-  "description": "n8n‑Node zum Auslesen und Ausfüllen von PDF‑Formularen über die PDF Fill API",
+  "name": "n8n-nodes-pdf-fill",
+  "version": "1.0.5",
+  "description": "n8n-Node zum Auslesen und Ausfüllen von PDF-Formularen über die PDF Fill API",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc"
@@ -21,10 +21,16 @@
     "n8n-node",
     "pdf",
     "form",
-    "pdf-fill"
+    "pdf-fill",
+    "n8n-community-node-package"
   ],
   "author": "Micha0827",
   "license": "MIT",
   "homepage": "https://github.com/Micha0827/PDFfillNode#readme",
-  "private": false
+  "private": false,
+  "n8n": {
+    "nodes": [
+      "dist/PDFFill.node.js"
+    ]
+  }
 }

@@ -19,7 +19,7 @@ class PDFFill {
         this.description = {
             displayName: 'PDF Fill',
             name: 'pdfFill',
-            icon: 'file:icon.png',
+            icon: 'file:pdfFill.svg',
             group: ['transform'],
             version: 1,
             description: 'Die Node ruft die API PDF Fill auf, die Formulardaten aus PDF extrahiert und Formulare in PDF ausfüllt',
@@ -106,14 +106,39 @@ class PDFFill {
                 {
                     displayName: 'Fields',
                     name: 'fields',
-                    type: 'json',
-                    default: {},
+                    type: 'fixedCollection',
+                    typeOptions: {
+                        multipleValues: true,
+                    },
+                    default: { field: [] },
+                    placeholder: 'Feld hinzufügen',
                     displayOptions: {
                         show: {
                             operation: ['fill'],
                         },
                     },
-                    description: 'Feldnamen und Werte für das Ausfüllen des PDFs',
+                    options: [
+                        {
+                            displayName: 'Feld',
+                            name: 'field',
+                            values: [
+                                {
+                                    displayName: 'Name',
+                                    name: 'name',
+                                    type: 'string',
+                                    default: '',
+                                    description: 'Feldname',
+                                },
+                                {
+                                    displayName: 'Value',
+                                    name: 'value',
+                                    type: 'string',
+                                    default: '',
+                                    description: 'Feldwert',
+                                },
+                            ],
+                        },
+                    ],
                 },
             ],
         };
@@ -140,8 +165,12 @@ class PDFFill {
                     form.append('pdfUrl', pdfUrl);
                 }
                 if (operation === 'fill') {
-                    const fields = this.getNodeParameter('fields', i);
-                    form.append('fields', JSON.stringify(fields));
+                    const fieldsCollection = this.getNodeParameter('fields.field', i);
+                    const fields = {};
+                    for (const fieldItem of fieldsCollection) {
+                        fields[fieldItem.name] = fieldItem.value;
+                    }
+                    form.append('fields', Buffer.from(JSON.stringify(fields)), { contentType: 'application/json' });
                 }
                 const endpoint = operation === 'fill' ? 'fill' : 'fields';
                 const options = {

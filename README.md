@@ -4,23 +4,14 @@ Mit dieser n8n‑Node kannst du Formulardaten aus PDFs auslesen („Get Fields�
 
 ## Voraussetzungen
 
-- n8n Version ≥ 2.x  
+- n8n Version ≥ 1.109  
 - Eine laufende Instanz der PDF Fill API (z. B. unter `http://localhost:8080`)
+- Repository der PDF Fill API: https://github.com/Micha0827/PDFfill
 
 ## Installation
 
-1. Node.js-Projekt im n8n-Verzeichnis:
-   ```bash
-   cd ~/.n8n/custom_nodes
-   git clone https://github.com/dein-repo/PDFfillNode.git
-   cd PDFfillNode
-   npm install
-   npm run build
-   ```
-2. n8n neu starten:
-   ```bash
-   n8n restart
-   ```
+Installation
+Diese Community Node kann direkt in n8n unter **Settings → Community Nodes** installiert werden. Suche nach dem Paketnamen `n8n-node-pdf-fill`.
 
 ## Node Konfiguration
 
@@ -31,7 +22,7 @@ Mit dieser n8n‑Node kannst du Formulardaten aus PDFs auslesen („Get Fields�
 | **PDF Source**   | Options  | `binary` (über vorherige Node) oder `url`               | `binary`                   |
 | **Binary Property** | String | Property-Name mit dem Binär‑PDF (bei `binary` Quelle)  | `data`                     |
 | **PDF URL**      | String   | URL zur PDF-Datei (bei `url` Quelle)                   | —                          |
-| **Fields**       | JSON     | Objekt mit Feld‑Name:Wert (nur bei `fill`)              | `{}`                       |
+| **Fields**       | Collection (fixedCollection) | Liste von Feldern mit `name` und `value` (nur bei `fill`)         | `{ field: [] }`           |
 
 ## Beispiel‑Workflows
 
@@ -73,15 +64,29 @@ Datei: `examples/fill_workflow.json`
         "source": "url",
         "pdfUrl": "https://example.com/form.pdf",
         "fields": {
-          "Name": "Max Mustermann",
-          "Vorname": "Max",
-          "Nachname": "Mustermann"
+          "field": [
+            {
+              "name": "Name",
+              "value": "Max Mustermann"
+            },
+            {
+              "name": "Vorname",
+              "value": "Max"
+            },
+            {
+              "name": "Nachname",
+              "value": "Mustermann"
+            }
+          ]
         }
       },
       "name": "Fill PDF Form",
       "type": "pdfFill",
       "typeVersion": 1,
-      "position": [250, 300]
+      "position": [
+        250,
+        300
+      ]
     }
   ],
   "connections": {}
