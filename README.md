@@ -11,7 +11,7 @@ Mit dieser n8n‑Node kannst du Formulardaten aus PDFs auslesen („Get Fields�
 ## Installation
 
 Installation
-Diese Community Node kann direkt in n8n unter **Settings → Community Nodes** installiert werden. Suche nach dem Paketnamen `n8n-node-pdf-fill`.
+Diese Community Node kann direkt in n8n unter **Settings → Community Nodes** installiert werden. Suche nach dem Paketnamen `n8n-nodes-pdf-fill`.
 
 ## Node Konfiguration
 
